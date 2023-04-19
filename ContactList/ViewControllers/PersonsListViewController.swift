@@ -7,19 +7,15 @@
 
 import UIKit
 
-class PersonsListViewController: UITableViewController {
+final class PersonsListViewController: UITableViewController {
 
-    let person = Person.getPerson()
+    var person: [Person]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let personList = person[indexPath.row]
         let userVC = segue.destination as? UserInformationViewController
-        userVC?.person = personList
+        userVC!.person = personList
     }
 }
 
@@ -31,7 +27,9 @@ extension PersonsListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fullName", for: indexPath)
+        
         var content = cell.defaultContentConfiguration()
+        
         let personList = person[indexPath.row]
         content.text = personList.fullName
         cell.contentConfiguration = content

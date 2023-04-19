@@ -19,7 +19,7 @@ struct Person {
         let persons: DataStore = .shared
         var result: [Person] = []
         
-        for _ in 1...persons.names.count {
+        for _ in 1..<persons.names.count + 1 {
             let randomName = persons.names.randomElement() ?? ""
             persons.names.removeAll(where: { $0 == randomName})
             
@@ -39,7 +39,7 @@ struct Person {
                 phone: randomPhone)
             )
         }
-        
+        print(result)
         return result
     }
 }
