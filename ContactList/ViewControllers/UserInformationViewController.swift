@@ -12,13 +12,13 @@ final class UserInformationViewController: UIViewController {
     @IBOutlet var phoneLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     
-    var person: Person!
+    var persons: Person!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "\(person.fullName )"
-        phoneLabel.text = "Phone: \(person.phone)"
-        emailLabel.text = "Email: \(person.email) "
+        title = persons.fullName
+        phoneLabel.text = "Phone: \(persons.phone)"
+        emailLabel.text = "Email: \(persons.email) "
     }
 }
 

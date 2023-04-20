@@ -9,43 +9,15 @@ import UIKit
 
 final class FullListViewController: UITableViewController {
     
-    var person: [Person]!
-    var contacts: [[String: String]] = []
+    var persons: [Person]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        createSections()
-    }
-}
-
-// MARK: - Privates metod
-extension FullListViewController {
-    private func createSections() {
-        let numberOfSections = person.count
-        
-        for contact in person {
-            let sectionTitle = contact.fullName
-            contacts.append(["fullName": sectionTitle])
-        }
-        
-        for number in 0..<numberOfSections {
-            let contact = person[number]
-            let sectionEmail = contact.email
-            let sectionPhone = contact.phone
-            contacts[number]["email"] = sectionEmail
-            contacts[number]["phone"] = sectionPhone
-        }
-    }
-}
-
- //MARK: - UITableViewDataSource
-extension FullListViewController {
+    // MARK: - TAble view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        contacts.count
+        persons.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        contacts[section]["fullName"]
+        persons[section].fullName
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,19 +26,25 @@ extension FullListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "firsName", for: indexPath)
+    
+        let person = persons[indexPath.section]
+        var content = cell.defaultContentConfiguration()
         
-        let contact = person[indexPath.section]
-        
-        if indexPath.row == 0 {
-            var content = UIListContentConfiguration.subtitleCell()
-            content.text = "Phone: \(contact.phone)"
-            cell.contentConfiguration = content
-        } else if indexPath.row == 1 {
-            var content = UIListContentConfiguration.subtitleCell()
-            content.text = "Mail: \(contact.email)"
-            cell.contentConfiguration = content
+        switch indexPath.row {
+        case 0:
+            content.text = person.phone
+            content.image = UIImage(systemName: Contacts.phone.rawValue)
+        default:
+            content.text = person.email
+            content.image = UIImage(systemName: Contacts.email.rawValue)
         }
         
+        cell.contentConfiguration = content
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

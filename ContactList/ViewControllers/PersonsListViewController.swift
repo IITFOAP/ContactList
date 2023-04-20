@@ -9,20 +9,11 @@ import UIKit
 
 final class PersonsListViewController: UITableViewController {
 
-    var person: [Person]!
+    var persons: [Person]!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let personList = person[indexPath.row]
-        let userVC = segue.destination as? UserInformationViewController
-        userVC!.person = personList
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension PersonsListViewController {
+    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        person.count
+        persons.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,10 +21,19 @@ extension PersonsListViewController {
         
         var content = cell.defaultContentConfiguration()
         
-        let personList = person[indexPath.row]
+        let personList = persons[indexPath.row]
+        
         content.text = personList.fullName
         cell.contentConfiguration = content
 
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let personList = persons[indexPath.row]
+        let userVC = segue.destination as? UserInformationViewController
+        userVC!.persons = personList
+    }
 }
+

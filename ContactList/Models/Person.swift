@@ -16,30 +16,37 @@ struct Person {
     }
     
     static func getPerson() -> [Person] {
-        let persons: DataStore = .shared
-        var result: [Person] = []
+        var persons: [Person] = []
         
-        for _ in 1..<persons.names.count + 1 {
-            let randomName = persons.names.randomElement() ?? ""
-            persons.names.removeAll(where: { $0 == randomName})
-            
-            let randomSurname = persons.surnames.randomElement() ?? ""
-            persons.surnames.removeAll(where: { $0 == randomSurname})
-            
-            let randomEmail = persons.emails.randomElement() ?? ""
-            persons.emails.removeAll(where: { $0 == randomEmail})
-            
-            let randomPhone = persons.phones.randomElement() ?? ""
-            persons.phones.removeAll(where: { $0 == randomPhone})
-            
-            result.append(Person(
-                name: randomName,
-                surname: randomSurname,
-                email: randomEmail,
-                phone: randomPhone)
+        let names = DataStore.shared.names.shuffled()
+        let surnames = DataStore.shared.names.shuffled()
+        let emails = DataStore.shared.emails.shuffled()
+        let phones = DataStore.shared.phones.shuffled()
+        
+        let iterationCount = min(
+            names.count,
+            surnames.count,
+            emails.count,
+            phones.count
+        )
+        
+        for index in 0..<iterationCount {
+            let person = Person(
+                name: names[index],
+                surname: surnames[index],
+                email: emails[index],
+                phone: phones[index]
             )
+            
+            persons.append(person)
         }
-        print(result)
-        return result
+        
+        return persons
     }
+}
+
+
+enum Contacts: String {
+    case phone = "phone"
+    case email = "tray"
 }

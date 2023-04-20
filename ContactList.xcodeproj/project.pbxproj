@@ -15,7 +15,7 @@
 		2C6CC23229EDE00700C4B09F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6CC23129EDE00700C4B09F /* Assets.xcassets */; };
 		2C6CC23529EDE00700C4B09F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6CC23329EDE00700C4B09F /* LaunchScreen.storyboard */; };
 		2C6CC23D29EDE07B00C4B09F /* PersonsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CC23C29EDE07B00C4B09F /* PersonsListViewController.swift */; };
-		2CD631BD29F06E8900B69EEE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD631BC29F06E8900B69EEE /* MainViewController.swift */; };
+		2CD631BD29F06E8900B69EEE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD631BC29F06E8900B69EEE /* TabBarViewController.swift */; };
 		2CF9287F29EF10C500F88BB8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9287E29EF10C500F88BB8 /* Person.swift */; };
 		2CF9288229EF13FD00F88BB8 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9288129EF13FD00F88BB8 /* DataStore.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		2C6CC23429EDE00700C4B09F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6CC23629EDE00700C4B09F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6CC23C29EDE07B00C4B09F /* PersonsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsListViewController.swift; sourceTree = "<group>"; };
-		2CD631BC29F06E8900B69EEE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2CD631BC29F06E8900B69EEE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2CF9287E29EF10C500F88BB8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		2CF9288129EF13FD00F88BB8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C36A02C29F1CD78008718D1 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				2C6CC22E29EDE00700C4B09F /* Main.storyboard */,
+				2C6CC23329EDE00700C4B09F /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		2C6CC21C29EDE00700C4B09F = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +80,7 @@
 				2CF9288329EF140000F88BB8 /* Services */,
 				2C6CC24029EDE18500C4B09F /* App */,
 				2C6CC24129EDE18E00C4B09F /* Resources */,
+				2C36A02C29F1CD78008718D1 /* StoryBoards */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -78,9 +88,7 @@
 		2C6CC23F29EDE17200C4B09F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C6CC22829EDE00700C4B09F /* AppDelegate.swift */,
-				2C6CC22A29EDE00700C4B09F /* SceneDelegate.swift */,
-				2CD631BC29F06E8900B69EEE /* MainViewController.swift */,
+				2CD631BC29F06E8900B69EEE /* TabBarViewController.swift */,
 				2C40336F29F01DCC003053A4 /* FullListViewController.swift */,
 				2C6CC23C29EDE07B00C4B09F /* PersonsListViewController.swift */,
 				2C6CC22C29EDE00700C4B09F /* UserInformationViewController.swift */,
@@ -91,8 +99,8 @@
 		2C6CC24029EDE18500C4B09F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				2C6CC22E29EDE00700C4B09F /* Main.storyboard */,
-				2C6CC23329EDE00700C4B09F /* LaunchScreen.storyboard */,
+				2C6CC22829EDE00700C4B09F /* AppDelegate.swift */,
+				2C6CC22A29EDE00700C4B09F /* SceneDelegate.swift */,
 				2C6CC23629EDE00700C4B09F /* Info.plist */,
 			);
 			path = App;
@@ -200,7 +208,7 @@
 				2C6CC22B29EDE00700C4B09F /* SceneDelegate.swift in Sources */,
 				2C6CC23D29EDE07B00C4B09F /* PersonsListViewController.swift in Sources */,
 				2C40337029F01DCC003053A4 /* FullListViewController.swift in Sources */,
-				2CD631BD29F06E8900B69EEE /* MainViewController.swift in Sources */,
+				2CD631BD29F06E8900B69EEE /* TabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
